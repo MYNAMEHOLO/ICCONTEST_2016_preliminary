@@ -1,4 +1,3 @@
-
 `timescale 1ns/10ps
 module LBP ( clk, reset, gray_addr, gray_req, gray_ready, gray_data, lbp_addr, lbp_valid, lbp_data, finish);
 input   	clk;
@@ -50,7 +49,6 @@ assign g6_addr = g4_addr + 14'd127;
 assign g7_addr = g4_addr + 14'd128;
 assign g8_addr = g4_addr + 14'd129;
 
-
 // L B P /////////////////////////////////////
 // kernel size 3*3
 reg [7:0] g0;
@@ -62,6 +60,7 @@ reg [7:0] g5;
 reg [7:0] g6;
 reg [7:0] g7;
 reg [7:0] g8;
+
 // define wire compare with center
 wire comp_g0;
 wire comp_g1;
@@ -71,6 +70,7 @@ wire comp_g5;
 wire comp_g6;
 wire comp_g7;
 wire comp_g8;
+
 //kernel out;
 wire [7:0] k_out; // which means kernel out;
  
@@ -95,7 +95,6 @@ assign k_out = {comp_g8,comp_g7,comp_g6,comp_g5,comp_g3,comp_g2,comp_g1,comp_g0}
 
 // L B P //////////////////////////////////////
 
-
 //current state logic
 always@(posedge clk or posedge reset)begin
     if(reset) begin
@@ -104,7 +103,6 @@ always@(posedge clk or posedge reset)begin
     end
     else cs <= ns;
 end
-
 
 //next state logic
 always@(*)begin
