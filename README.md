@@ -7,7 +7,8 @@
 
 最終結果為
 * Simulation Time: 952602 ns
-* Cell Area: 8609
+* Cell Area: 8609 (原始的TCL)
+* Cell Area: 7286 (dcnxt使用compile ultra指令合成)
 * 成績結果為 Class A
 
 
