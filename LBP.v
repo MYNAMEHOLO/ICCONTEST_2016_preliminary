@@ -98,16 +98,15 @@ assign k_out = {comp_g8,comp_g7,comp_g6,comp_g5,comp_g3,comp_g2,comp_g1,comp_g0}
 //current state logic
 always@(posedge clk or posedge reset)begin
     if(reset) begin
-        cs <= 'b0;
-        cs[IDLE] <= 1'b1;
+        cs <= 13'd1;
     end
     else cs <= ns;
 end
 
 //next state logic
 always@(*)begin
-    ns = 'b0;
-    case(1'b1) //synopsys parallel_case
+    ns = 13'd0;
+    case(1'b1) 
         cs[IDLE]: ns[R0] = 1'b1;
         cs[R0]:begin
             if(gray_ready) ns[R1] = 1'b1;
@@ -150,11 +149,35 @@ always@(*)begin
             if(o_en) ns[DONE] = 1'b1;            
             else ns[R0] = 1'b1;
         end
+		  default:begin
+				ns[R0] = 1'b1;
+		  end
     endcase
 end
 
-always@(posedge clk)begin
-    case(1'b1) //synopsys parallel_case
+always@(posedge clk or posedge reset)begin
+    if(reset)begin
+        finish <= 1'b0;
+        gray_addr <= 14'd0;
+        gray_req <= 1'b0;
+        lbp_addr <= 14'd0;
+        lbp_valid <= 1'b0;
+        lbp_data <= 8'd0;
+        g4_addr <= 14'd129;
+        cnt <= 7'b0;
+        o_en <= 1'b0;
+        g0 <= 8'd0;
+        g1 <= 8'd0;
+        g2 <= 8'd0;
+        g3 <= 8'd0;
+        g4 <= 8'd0;
+        g5 <= 8'd0;
+        g6 <= 8'd0;
+        g7 <= 8'd0;
+        g8 <= 8'd0;
+    end
+    else begin 
+		case(1'b1) 
         cs[IDLE]:begin
             finish <= 1'b0;
             lbp_valid <= 1'b0;
@@ -224,7 +247,10 @@ always@(posedge clk)begin
             finish <= 1'b1;
         end
     endcase
+	 end
 end
 
 //====================================================================
+
+
 endmodule
