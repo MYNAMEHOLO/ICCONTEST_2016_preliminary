@@ -98,7 +98,8 @@ assign k_out = {comp_g8,comp_g7,comp_g6,comp_g5,comp_g3,comp_g2,comp_g1,comp_g0}
 //current state logic
 always@(posedge clk or posedge reset)begin
     if(reset) begin
-        cs <= 13'd1;
+        cs <= 'd0;
+	cs[IDLE] <= 1'b1;
     end
     else cs <= ns;
 end
