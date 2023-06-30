@@ -6,9 +6,8 @@
 **sysnopsys parallel_case**來進行onehot的優化。
 
 最終結果為
-* Simulation Time: 952602 ns
-* Cell Area: 8609 (原始的TCL)
-* Cell Area: 7286 (dcnxt使用compile ultra指令合成)
+* Simulation Time: 1047858 ns
+* Cell Area: 9984 (dcnxt使用compile ultra指令合成)
 * 成績結果為 Class A
 
 
