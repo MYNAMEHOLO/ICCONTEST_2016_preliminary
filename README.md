@@ -1,6 +1,6 @@
 ## LBP(LOCAL BINARY Patterns) 局部二值化的影像轉換演算法
 ### 簡述：
-本題描述一個LBP(LOCAL BINARY Patterns)的演算電路，本文章僅供學術分享與心得交流，希望可以幫助到有準備參加比賽練習考古題的同學。
+本題描述一個LBP(LOCAL BINARY Patterns)的影像轉換電路演算法實現，本文章僅供學術分享與心得交流，希望可以幫助到有準備參加比賽練習考古題的同學。
 
 這一次的競賽當中要求**Simulation Timing * Cell Area <= 12,000,000,000為CLASS A**
 這次實際應用One hot encoding的方式進行代碼設計，並且在compiler directives使用 
